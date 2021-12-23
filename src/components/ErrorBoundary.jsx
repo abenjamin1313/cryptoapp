@@ -1,18 +1,14 @@
 import React, { Component } from "react";
 
 export default class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hasError: false,
-      error: "",
-      errorInfo: ""
-    };
-  }
+  state = {
+    hasError: false,
+    error: "",
+    errorInfo: ""
+  };
 
   static getDerivedStateFromError(error) {
-    return { hasError: true };
+    return { hasError: true, error };
   }
 
   componentDidCatch(error, errorInfo) {
@@ -20,14 +16,15 @@ export default class ErrorBoundary extends Component {
       error: error,
       errorInfo: errorInfo
     });
+    console.log(error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <div>
-          <h5>Error:</h5> {this.state.error.toString()} <br />
-          <h5>Error Info:</h5> {this.state.errorInfo.componentStack}
+          <h5>Error: {this.state.error.toString()}</h5>  <br />
+          <h5>Error Info: {this.state.errorInfo.componentStack}</h5> 
           <h5>Date Info: {this.state.date.toISOString()}</h5>
         </div>
       );
