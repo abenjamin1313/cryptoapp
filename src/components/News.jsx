@@ -8,7 +8,7 @@ const { Text, Title } = Typography;
 const { Option } = Select;
 
 const News = ({ simplified }) => {
-    const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: 'Cryptocurrency', count: simplified ? 6 : 12 })
+    const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: 'top+stories', count: simplified ? 6 : 12 })
 
     console.log('Data:', cryptoNews);
 
