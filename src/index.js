@@ -5,14 +5,17 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from './app/store';
 import 'antd/dist/antd.css';
+import ErrorBoundary from './components/ErrorBoundary';
 
 ReactDom.render(
         <React.StrictMode>
-            <Router>
-                <Provider store={store}>
-                    <App /> 
-                </Provider>
-            </Router>
+            <ErrorBoundary>
+                <Router>
+                    <Provider store={store}>
+                        <App /> 
+                    </Provider>
+                </Router>
+            </ErrorBoundary>
         </React.StrictMode>,
     document.getElementById('root')
     );

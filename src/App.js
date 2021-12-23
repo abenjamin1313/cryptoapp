@@ -3,13 +3,11 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import { Navbar, Exchanges, Homepage, CryptoDetails, Cryptocurrencies, News } from './components';
 import './App.css';
-import ErrorBoundary from './components/ErrorBoundary';
-
 
 function App() {
 
     return (
-        <ErrorBoundary>
+       
             <div className="app">
                 <div className="navbar">
                     <Navbar />
@@ -41,7 +39,7 @@ function App() {
                     </div>
                 </div> 
             </div>
-        </ErrorBoundary>
+        
     )
 }
 
